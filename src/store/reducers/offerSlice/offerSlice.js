@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   offers: [],
-  isOffersLoad: false,
+  isOfferLoad: false,
   isOffersErr: [],
 };
 
@@ -11,14 +11,14 @@ const offerSlice = createSlice({
   initialState,
   reducers: {
     fetchingOfferData: (state) => {
-      state.isOffersLoad = true; 
+      state.isOfferLoad = true; 
     },
     fetchedOfferData: (state, action) => {
-      state.isOffersLoad = false; 
+      state.isOfferLoad = false; 
       state.offers = action.payload;
     },
     fetchedOfferErr: (state, action) => {
-      state.isOffersLoad = false;
+      state.isOfferLoad = false;
       state.isOffersErr = action.payload;
     },
   },

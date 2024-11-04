@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Tilt } from 'react-tilt';
 
 
-const DestCard = ({ item , index}) => {
+const DestCard = ({ item, index }) => {
   const [authLoading, setAuthLoading] = useState(true);
 
   const defaultOptions = {
@@ -44,7 +44,7 @@ const DestCard = ({ item , index}) => {
         </div>
       </Tilt>
     </>
-  );
-};
+  )
+}
 
 export default DestCard;

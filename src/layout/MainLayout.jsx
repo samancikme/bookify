@@ -21,6 +21,10 @@ const MainLayout = () => {
 
   // console.log(destinations)
   // console.log(offers)
+
+
+
+  
   useEffect(() => {
     dispatch(getAllDestData(baseUrl))
     dispatch(getAllOfferData(baseUrl))

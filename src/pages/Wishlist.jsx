@@ -6,7 +6,7 @@ const Wishlist = () => {
   return (
     <div className="">
       <Container>
-        <div className="w-full min-h-[calc(100vh-80px)] border font-nunito border-gray-200 rounded-lg shadow-md px-5 py-3">
+        <div className="w-full min-h-[calc(100vh-80px)] mb-[10px] border font-nunito border-gray-200 rounded-lg shadow-md px-5 py-3">
           <div className="">
             <div className="text-[28px] pt-5 font-bold">
               Wishlist

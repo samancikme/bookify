@@ -19,6 +19,9 @@ export default {
           'xl': "1280px",
         },
       },
+      backgroundImage : {
+        home : 'url(./src/image/homeimg2.png)'
+      }
     },
   },
   plugins: [],

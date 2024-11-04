@@ -21,7 +21,7 @@ export const btnsMenu = [
         id : 3,
         title : "Trips",
         icon : FaPlaneDeparture ,
-        path : "/trips"
+        path : "/tours"
     },
     {
         id : 4,

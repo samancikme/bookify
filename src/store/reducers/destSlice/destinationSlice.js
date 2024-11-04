@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   destinations: [],
-  isDestinationLoad: false,
-  isDestinationErr: [],
+  isDestLoad: false,
+  isDestErr: [],
 };
 
 const destinationSlice = createSlice({
@@ -11,15 +11,15 @@ const destinationSlice = createSlice({
   initialState,
   reducers: {
     fetchingDestData: (state, action) => {
-      state.isDestinationLoad = true;
+      state.isDestLoad = true;
     },
     fetchedDestData: (state, action) => {
-      state.isDestinationLoad = false;
+      state.isDestLoad = false;
       state.destinations = action.payload;
     },
     fetchedDestErr: (state, action) => {
-      state.isDestinationLoad = false;
-      state.isDestinationErr = action.payload;
+      state.isDestLoad = false;
+      state.isDestErr = action.payload;
     },
   },
 });

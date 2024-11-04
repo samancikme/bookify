@@ -6,7 +6,6 @@ import {
   FaHeadset,
   FaExchangeAlt,
 } from "react-icons/fa";
-import { useSelector } from "react-redux";
 
 export const features = [
   {
@@ -59,7 +58,7 @@ export const testimonials = [
     name: "Mr. Daniel Scoot",
     role: "Founder, EduXpart",
     image:
-      "https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8eW91bmclMjBtYW58ZW58MHx8MHx8fDA%3D", // Replace with actual image path or URL
+      "https://plus.unsplash.com/premium_photo-1682096259050-361e2989706d?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8eW91bmclMjBtYW58ZW58MHx8MHx8fDA%3D",
   },
   {
     title: "Journey of Cultural Immersion",
@@ -68,7 +67,7 @@ export const testimonials = [
     name: "Mr. Mark Crus",
     role: "Founder, Ensosis Soft",
     image:
-      "https://media.istockphoto.com/id/1289461335/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=gDibbpmkeV04ta3ociwAgpqcjdeU5sI1nnd78wrnz-g=", // Replace with actual image path or URL
+      "https://media.istockphoto.com/id/1289461335/photo/portrait-of-a-handsome-black-man.jpg?s=612x612&w=0&k=20&c=gDibbpmkeV04ta3ociwAgpqcjdeU5sI1nnd78wrnz-g=",
   },
   {
     title: "Memories That Will Last Forever",
@@ -77,6 +76,6 @@ export const testimonials = [
     name: "Mr. John Doe",
     role: "Founder, Ezency Ltd",
     image:
-      "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg", // Replace with actual image path or URL
+      "https://static.vecteezy.com/system/resources/thumbnails/005/346/410/small_2x/close-up-portrait-of-smiling-handsome-young-caucasian-man-face-looking-at-camera-on-isolated-light-gray-studio-background-photo.jpg",
   },
 ];
