@@ -20,7 +20,7 @@ export default {
         },
       },
       backgroundImage : {
-        home : 'url(./src/image/homeimg2.png)'
+        home : 'url(https://i.imghippo.com/files/XAz7279k.png)'
       }
     },
   },
