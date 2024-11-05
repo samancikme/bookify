@@ -15,7 +15,7 @@ const HomeTourCard = ({ item }) => {
     };
 
     return (
-        <div className="h-[450px] w-[320px] bg-white rounded-lg shadow-lg flex-grow overflow-hidden">
+        <div className="h-[400px] w-[320px] bg-white rounded-lg shadow-lg flex-grow overflow-hidden">
             <div className="relative">
                 <img
                     src={item.images[0]}
@@ -34,9 +34,6 @@ const HomeTourCard = ({ item }) => {
             <div className="p-4">
                 <div className="text-[16px] font-semibold text-gray-900">
                     {item.title}
-                </div>
-                <div className="text-[14px] font-normal text-gray-700 h-[60px] overflow-y-scroll">
-                    {item.details}
                 </div>
                 <div className="flex flex-col mt-4 w-full">
                     <div className="flex justify-between items-center pr-5">

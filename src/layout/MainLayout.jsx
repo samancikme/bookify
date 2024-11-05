@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { getAllDestData, getAllOfferData } from './../api/getRequests';
 import Footer from "../components/Footer";
 import ModalAlert from "../components/ModalAlert";
+import AuthModal from "../components/pageComponents/AuthModal";
 
 const MainLayout = () => {
   const { isMenuAct } = useSelector(state => state.page)
@@ -25,7 +26,7 @@ const MainLayout = () => {
 
 
 
-  
+
   useEffect(() => {
     dispatch(getAllDestData(baseUrl))
     dispatch(getAllOfferData(baseUrl))
@@ -49,6 +50,9 @@ const MainLayout = () => {
       </div>
       <div className="static bottom-0 right-0 left-0">
         <Footer />
+      </div>
+      <div>
+        <AuthModal />
       </div>
     </div>
   )

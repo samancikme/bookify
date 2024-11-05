@@ -128,7 +128,7 @@ const Tours = () => {
                 {
                   isOfferLoad ?
                     <>
-                      {[1, 2, 3, 4, 5].map(i => <div className="bg-black bg-opacity-10 animate-pulse w-full max-[600px]:flex-col h-[200px] rounded-lg shadow-md overflow-hidden" />)}
+                      {[1, 2, 3, 4, 5].map((i,index) => <div key={index} className="bg-black bg-opacity-10 animate-pulse w-full max-[600px]:flex-col h-[200px] rounded-lg shadow-md overflow-hidden" />)}
                     </>
                     :
                     <span className="text-center col-span-3 text-gray-600">Tour not found :( </span>

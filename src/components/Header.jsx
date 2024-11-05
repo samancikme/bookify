@@ -1,4 +1,4 @@
-import { changeLang, toggleLangMenu, toggleMenu } from "../store/reducers/pageSlice.js";
+import { changeLang, toggleAuthType, toggleLangMenu, toggleMenu, toggleModal, toggleRegModal } from "../store/reducers/pageSlice.js";
 import Container from "./Container";
 import { CgClose } from "react-icons/cg";
 import { RiTranslate2 } from "react-icons/ri";
@@ -62,7 +62,7 @@ const Header = () => {
               </button>
               {isLangMenuAct && (
                 <div
-                 className="absolute right-[9%] bg-white top-[100%] border py-1 rounded-lg px-2 shadow-lg">
+                  className="absolute right-[9%] bg-white top-[100%] border py-1 rounded-lg px-2 shadow-lg">
                   <div className="flex justify-center flex-col gap-2">
                     {languages.map((lang, index) => {
                       return (
@@ -105,7 +105,7 @@ const Header = () => {
         }}
         className={`top-[10%] right-[5%] md:flex  fixed hidden  rounded-2xl  z-50 w-[250px] duration-300 ${isMenuAct ? 'opacity-100 scale-100 ' : 'overflow-hidden opacity-0 w-0 -z-50'} bg-white backdrop:blur-lg border border-gray-100 shadow-md pb-3`}>
         <div className={` ${isMenuAct ? 'pt-3' : ' opacity-0 w-0 h-0 overflow-hidden'} flex w-full  flex-col gap-1 duration-300 font-quicksand `}>
-          {!accountStatus ?
+          {accountStatus ?
             <>
               <div className="flex flex-col gap-1 border-b pb-3">
                 {btnsSidebar.first.map((btn) => {
@@ -160,11 +160,23 @@ const Header = () => {
             :
             <>
               <div className="flex flex-col gap-1 border-b pb-3 ">
-                <button className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
-                  Login
-                </button>
-                <button className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
+                <button
+                  onClick={() => {
+                    dispatch(toggleMenu())
+                    dispatch(toggleRegModal())
+                    dispatch(toggleAuthType('sign-up'))
+                  }}
+                  className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
                   Sign Up
+                </button>
+                <button
+                  onClick={() => {
+                    dispatch(toggleMenu())
+                    dispatch(toggleRegModal())
+                    dispatch(toggleAuthType('log-in'))
+                  }}
+                  className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
+                  Login
                 </button>
               </div>
               <div className="flex flex-col gap-1 pt-2">
