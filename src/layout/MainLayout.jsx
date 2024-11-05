@@ -7,6 +7,7 @@ import { toggleMenu } from '../store/reducers/pageSlice'
 import { useEffect } from "react";
 import { getAllDestData, getAllOfferData } from './../api/getRequests';
 import Footer from "../components/Footer";
+import ModalAlert from "../components/ModalAlert";
 
 const MainLayout = () => {
   const { isMenuAct } = useSelector(state => state.page)

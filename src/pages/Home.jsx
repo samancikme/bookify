@@ -7,7 +7,6 @@ import { BsArrowRight } from "react-icons/bs";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import img1 from '../image/homeimg.png';
-import img2 from '../image/homeimg2.png';
 
 const Home = () => {
   const { destinations, isDestLoad } = useSelector(state => state.destinations);
@@ -21,15 +20,15 @@ const Home = () => {
           <section className='relative'>
             <div className="z-0 rounded-xl overflow-hidden max-md:bg-home md:border bg-no-repeat bg-bottom bg-contain h-[calc(100vh-150px)]">
               <img
-                className='object-cover w-full h-full max-sm:hidden'
+                className='object-cover w-full h-full max-md:hidden'
                 src={img1}
                 alt="image" />
             </div>
             <div className="absolute top-[30%] text-white gap-2 w-full flex flex-col justify-center items-center">
               <div className="flex flex-col gap-1 justify-center items-center">
-                {/* <div className="sm:text-[30px] cursor-default text-[24px] font-bold">
+                <div className="sm:text-[30px] cursor-default text-[24px] font-bold max-md:hidden">
                   Enjoy Your Dream Vacation
-                </div> */}
+                </div>
               </div>
               <Search />
             </div>
@@ -51,8 +50,8 @@ const Home = () => {
               <div className="flex justify-between flex-grow flex-wrap gap-3">
                 {isDestLoad ?
                   <>
-                    {[1, 2, 3, 4].map(i => (
-                      <div className='transform transition-transform duration-300 ease-out cursor-pointer rounded-lg shadow-lg flex-grow w-[280px] bg-black bg-opacity-10 animate-pulse h-[400px]'></div>
+                    {[1, 2, 3, 4].map((i,index) => (
+                      <div key={index} className='transform transition-transform duration-300 ease-out cursor-pointer rounded-lg shadow-lg flex-grow w-[280px] bg-black bg-opacity-10 animate-pulse h-[400px]'></div>
                     ))}
                   </>
                   :
@@ -109,8 +108,8 @@ const Home = () => {
               <div className="flex flex-grow flex-wrap gap-2">
                 {isOfferLoad ?
                   <>
-                    {[1, 2, 3, 4].map(i => (
-                      <div className='h-[450px] w-[320px] bg-black bg-opacity-10 animate-pulse transition-transform rounded-lg shadow-lg flex-grow cursor-pointer'></div>
+                    {[1, 2, 3, 4].map((i,index) => (
+                      <div key={index} className='h-[450px] w-[320px] bg-black bg-opacity-10 animate-pulse transition-transform rounded-lg shadow-lg flex-grow cursor-pointer'></div>
                     ))}
                   </>
                   :

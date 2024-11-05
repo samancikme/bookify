@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { DateRange } from 'react-date-range';
 import { BsSearch } from 'react-icons/bs';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 
 const Search = () => {
-
     const [typeAct, setTypeAct] = useState(false);
     const [dateAct, setDateAct] = useState(false);
     const [adultsAct, setAdultsAct] = useState(false);
-
-
 
     const [date, setDate] = useState({
         startDate: new Date(),
@@ -24,70 +21,81 @@ const Search = () => {
     });
 
     const handleChange = (ranges) => {
-        setDate(ranges.selection);
+        const { startDate, endDate } = ranges.selection;
+        setDate({ startDate, endDate, key: 'selection' });
+        setSelectedDates({
+            startDate: startDate.toDateString().slice(4, 10),
+            endDate: endDate.toDateString().slice(4, 10),
+        });
     };
 
     const handleSaveDates = () => {
-        setSelectedDates({
-            startDate: date.startDate.toDateString().slice(4, 10),
-            endDate: date.endDate.toDateString().slice(4, 10),
-        });
-        setDateAct(false)
+        setDateAct(false);
     };
 
-
     const countryTypes = [
-        { name: "Almaty", description: "Any week" },
-        { name: "Tbilisi", description: "Any week" },
-        { name: "İstanbul", description: "Any week" },
-        { name: "Jaipur, India", description: "For sights like Amber Fort" },
-        { name: "Manali, India", description: "For nature-lovers" },
-        { name: "New Delhi, India", description: "For its stunning architecture" },
-      ];
+        { name: "Almaty", description: "Any week", image: "/path/to/almaty.jpg" },
+        { name: "Tbilisi", description: "Any week", image: "/path/to/tbilisi.jpg" },
+        { name: "İstanbul", description: "Any week", image: "/path/to/istanbul.jpg" },
+        { name: "Jaipur, India", description: "For sights like Amber Fort", image: "/path/to/jaipur.jpg" },
+        { name: "Manali, India", description: "For nature-lovers", image: "/path/to/manali.jpg" },
+        { name: "New Delhi, India", description: "For its stunning architecture", image: "/path/to/delhi.jpg" },
+    ];
+
+    const handleToggle = (setter) => {
+        setTypeAct(false);
+        setDateAct(false);
+        setAdultsAct(false);
+        setter(true);
+    };
+
     return (
         <>
-            <form
-                className="lg:w-[60%] md:w-[90%] sm:w-[95%] sm:flex rounded-full bg-black bg-opacity-15 backdrop:blur-xl mx-auto relative hidden justify-between items-center p-[3px]">
+            <form className="lg:w-[60%] md:w-[90%] sm:w-[95%] sm:flex rounded-full bg-black bg-opacity-15 backdrop:blur-xl mx-auto relative hidden justify-between items-center p-[3px]">
                 <div className="flex justify-start pl-6 items-center gap-2 hover:bg-[#999999] rounded-full flex-[2]">
                     <div
-                        onClick={() => setTypeAct(!typeAct)}
-                        className="justify-center items-center cursor-pointer py-2">
+                        onClick={() => handleToggle(setTypeAct)}
+                        className="justify-center items-center cursor-pointer py-2"
+                    >
                         <div className="flex flex-col gap-0">
-                            <span className="text-[14px] font-medium">Where</span>
-                            <span className="text-[15px] font-medium">Search destinations</span>
+                            <span className="text-[15px] font-medium">Where</span>
+                            <span className="text-[12px] text-gray-200 font-medium">Search destinations</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex justify-center items-center gap-2 flex-1 hover:bg-[#999999] rounded-full">
                     <div
-                        onClick={() => setDateAct(!dateAct)}
-                        className="flex justify-center items-center cursor-pointer py-2">
+                        onClick={() => handleToggle(setDateAct)}
+                        className="flex justify-center items-center cursor-pointer py-2"
+                    >
                         <div className="flex flex-col gap-0">
-                            <span className="text-[14px] font-medium">Check in</span>
-                            <span className="text-[15px] font-medium">{selectedDates.startDate}</span>
+                            <span className="text-[15px] font-medium">Check in</span>
+                            <span className="text-[12px] text-gray-200 font-medium">{selectedDates.startDate}</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex justify-center items-center gap-2 flex-1 hover:bg-[#999999] rounded-full">
                     <div
-                        onClick={() => setDateAct(!dateAct)}
-                        className="flex justify-center items-center cursor-pointer py-2">
+                        onClick={() => handleToggle(setDateAct)}
+                        className="flex justify-center items-center cursor-pointer py-2"
+                    >
                         <div className="flex flex-col gap-0">
-                            <span className="text-[14px] font-medium">Check out</span>
-                            <span className="text-[15px] font-medium">{selectedDates.endDate}</span>
+                            <span className="text-[15px] font-medium">Check out</span>
+                            <span className="text-[12px] text-gray-200 font-medium">{selectedDates.endDate}</span>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex justify-start pl-6 items-center gap-2 flex-[2] hover:bg-[#999999] rounded-full">
                     <div
-                        onClick={() => setAdultsAct(!adultsAct)}
-                        className="flex justify-center items-center cursor-pointer py-2">
+                        onClick={() => handleToggle(setAdultsAct)}
+                        className="flex justify-center items-center cursor-pointer py-2"
+                    >
                         <div className="flex flex-col gap-0">
-                            <span className="text-[14px] font-medium">Who</span>
-                            <span className="text-[15px] font-medium">Add guests</span>
+                            <span className="text-[15px] font-medium">Who</span>
+                            <span className="text-[12px] text-gray-200 font-medium">Add guests</span>
                         </div>
                     </div>
                 </div>
@@ -109,7 +117,7 @@ const Search = () => {
                             months={2}
                             direction="horizontal"
                             showMonthAndYearPickers={false}
-                            className="dateRange" />
+                            className="dateRange"/>
                         <button onClick={handleSaveDates} className="mt-2 bg-green-500 text-white py-1 px-3 rounded">
                             Save Dates
                         </button>
@@ -132,7 +140,7 @@ const Search = () => {
                 )}
             </form>
         </>
-    )
+    );
 }
 
-export default Search
+export default Search;

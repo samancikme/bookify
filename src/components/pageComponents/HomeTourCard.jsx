@@ -1,8 +1,19 @@
-import { AiOutlineHeart } from "react-icons/ai";
-import React from 'react'
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useDispatch, useSelector } from 'react-redux';
+import { addToFavorites, removeFromFavorites } from "../../store/reducers/pageSlice";
 
 const HomeTourCard = ({ item }) => {
-    // console.log(item)
+    const dispatch = useDispatch();
+    const favTours = useSelector(state => state.page.favTours);
+    const isFavorited = favTours.some(fav => fav.id === item.id);
+    const handleFavoriteToggle = () => {
+        if (isFavorited) {
+            dispatch(removeFromFavorites(item.id));
+        } else {
+            dispatch(addToFavorites(item));
+        }
+    };
+
     return (
         <div className="h-[450px] w-[320px] bg-white rounded-lg shadow-lg flex-grow overflow-hidden">
             <div className="relative">
@@ -10,8 +21,14 @@ const HomeTourCard = ({ item }) => {
                     src={item.images[0]}
                     alt="Travel Destination"
                     className="w-full h-[250px] object-cover" />
-                <div className="absolute top-3 right-3 text-white px-2 hover:scale-105 cursor-pointer py-1 rounded flex items-center gap-1">
-                    <AiOutlineHeart className="text-[24px]" />
+                <div
+                    onClick={handleFavoriteToggle}
+                    className="absolute top-3 right-3 text-white px-2 hover:scale-105 cursor-pointer py-1 rounded flex items-center gap-1">
+                    {isFavorited ?
+                        <AiFillHeart className="text-[24px] text-red-500" />
+                        :
+                        <AiOutlineHeart className="text-[24px]" />
+                    }
                 </div>
             </div>
             <div className="p-4">
@@ -21,13 +38,13 @@ const HomeTourCard = ({ item }) => {
                 <div className="text-[14px] font-normal text-gray-700 h-[60px] overflow-y-scroll">
                     {item.details}
                 </div>
-                <div className="flex flex-col  mt-4 w-full">
+                <div className="flex flex-col mt-4 w-full">
                     <div className="flex justify-between items-center pr-5">
-                        <div className="">
+                        <div>
                             <span className="text-green-600 font-bold text-[18px]">{item.price}</span>
                             <span className="text-black text-[18px] font-semibold"> {"$"}</span>
                         </div>
-                        <div className="">
+                        <div>
                             <span className="text-yellow-500">★ {item.rating}</span>
                         </div>
                     </div>
@@ -39,7 +56,7 @@ const HomeTourCard = ({ item }) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HomeTourCard
+export default HomeTourCard;

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Tilt } from 'react-tilt';
 
 
 const DestCard = ({ item, index }) => {
+  const { destinations , isDestLoad} = useSelector(state => state.destinations);
   const [authLoading, setAuthLoading] = useState(true);
 
   const defaultOptions = {
