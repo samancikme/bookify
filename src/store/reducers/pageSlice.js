@@ -8,6 +8,7 @@ const initialState = {
   isRegModalAct: false,
   lang: "en",
   authType: "sign-up",
+  selectedTour : null
 }
 
 const pageSlice = createSlice({
@@ -31,6 +32,9 @@ const pageSlice = createSlice({
     },
     toggleAuthType: (state, action) => {
       state.authType = action.payload
+    },
+    setSelectedTour: (state, action) => {
+      state.selectedTour = action.payload
     },
     addToFavorites: (state, action) => {
       const tour = action.payload
@@ -56,6 +60,7 @@ export const {
   removeFromFavorites,
   toggleAuthType,
   toggleRegModal,
+  setSelectedTour
 } = pageSlice.actions
 
 export default pageSlice.reducer

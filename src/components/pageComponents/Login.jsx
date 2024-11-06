@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { toggleAuthType } from '../../store/reducers/pageSlice';
+import { logIn } from '../../api/postRequests';
 
 const Login = () => {
-
+  const baseUrl = 'https://travel-database-r4bg.onrender.com'
   const navigate = useNavigate()
   const [pasType, setPasType] = useState(true)  //! true === password  false === text
 
@@ -29,6 +30,8 @@ const Login = () => {
             validationSchema={validationSchema}
             onSubmit={async (valuesLog, { resetForm }) => {
               console.log(valuesLog)
+              dispatch(logIn(baseUrl , valuesLog , { resetForm} ))
+
             }}>
             {({ isSubmitting, errors, touched }) => (
               <Form className='flex flex-col gap-4'>

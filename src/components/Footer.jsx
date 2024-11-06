@@ -10,18 +10,18 @@ const Footer = () => {
         <footer className="bg-gray-900 text-gray-300 py-10 px-6 md:px-16">
             <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h2 className="text-[20px] font-semibold text-white mb-4">Bookify</h2>
-                    <p className="text-[16px] font-semibold mb-4">Want To Take Tour Packages?</p>
+                    <div className="text-[20px] font-semibold text-white mb-4">Bookify</div>
+                    <span className="text-[16px] font-semibold mb-4">Want To Take Tour Packages?</span>
                     <Link to={'/tours'}>
                         <button
-                            className="bg-green-500 hover:bg-green-600 duration-300 text-white py-[5px] px-4 rounded-lg">
+                            className="bg-green-500 hover:bg-green-600 duration-300 text-white py-[5px] px-4 rounded-md">
                             Book a Tour
                         </button>
                     </Link>
                 </div>
 
                 <div>
-                    <h3 className="text-xl font-semibold mb-4">Quick Link</h3>
+                    <div className="text-xl font-semibold mb-4">Quick Link</div>
                     <div className="space-y-2 flex flex-col">
                         <Link to="/about" className="hover:text-white">About Us</Link>
                         <Link to="/destinations" className="hover:text-white">Destinations</Link>
@@ -32,16 +32,16 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    <h3 className="text-[20px] font-semibold mb-4">More Inquiry</h3>
-                    <p className="flex items-center mb-2"><FaPhoneAlt className="mr-2" /> +999-858 624 984</p>
-                    <p className="flex items-center mb-2"><GrMail className="mr-2" /> info@example.com</p>
-                    <p className="flex items-center"><FaMapMarkerAlt className="mr-2" /> House 168/170, Avenue 01, Mirpur DOHS, Dhaka Bangladesh</p>
+                    <div className="text-[20px] font-semibold mb-4">More Inquiry</div>
+                    <span className="flex items-center mb-2"><FaPhoneAlt className="mr-2" /> +999-858 624 984</span>
+                    <span className="flex items-center mb-2"><GrMail className="mr-2" /> info@example.com</span>
+                    <span className="flex items-center"><FaMapMarkerAlt className="mr-2" /> House 168/170, Avenue 01, Mirpur DOHS, Dhaka Bangladesh</span>
                 </div>
 
                 <div>
-                    <h3 className="text-[20px] font-semibold mb-4">We Are Here</h3>
-                    <p className="mb-4">Quisque purus augue, facilisis andi neque idont accumsan fringilla massa. Vivamusol id nibhom condimentum.</p>
-                    <h3 className="text-[20px] font-semibold mb-4">Payment Partner</h3>
+                    <div className="text-[20px] font-semibold mb-4">We Are Here</div>
+                    <span className="mb-4">Quisque purus augue, facilisis andi neque idont accumsan fringilla massa. Vivamusol id nibhom condimentum.</span>
+                    <div className="text-[20px] font-semibold mb-4">Payment Partner</div>
                     <div className="flex space-x-4">
                         <SiVisa className="text-blue-600 text-[24px]" />
                         <SiStripe className="text-indigo-500 text-[24px]" />

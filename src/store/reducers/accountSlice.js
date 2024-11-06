@@ -1,19 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  accountStatus: localStorage.getItem('travel-token') || false,
+  accountStatus: localStorage.getItem('travel-token') ? true : false 
 };
 
 const accountSlice = createSlice({
   name: "accountSlice",
   initialState,
   reducers: {
-    toogleAccStatus : {
-        reducer: (state) => {
-            state.accountStatus =!state.accountStatus;
-            localStorage.setItem('travel-token', action.payload);
-        },
-    }
+    toogleAccStatus : (state) => {
+      state.accountStatus = !state.accountStatus
+    },
   },
 });
 

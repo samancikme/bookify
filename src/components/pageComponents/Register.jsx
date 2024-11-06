@@ -6,8 +6,10 @@ import { AiOutlineEye } from "react-icons/ai"
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
 import * as Yup from 'yup'
+import { registration } from "../../api/postRequests"
 
 const Register = () => {
+  const baseUrl = 'https://travel-database-r4bg.onrender.com'
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [pasType, setPasType] = useState(true)  //!* true === password false === text
@@ -29,6 +31,7 @@ const Register = () => {
                     onSubmit={async (valuesReg, { resetForm }) => {
                         const { confirmPassword, ...dataToSend } = valuesReg
                         console.log(valuesReg)
+                        dispatch(registration(baseUrl , valuesReg , { resetForm} ))
                     }}>
 
                     {({ isSubmitting, errors, touched }) => (

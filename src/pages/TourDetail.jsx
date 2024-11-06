@@ -1,11 +1,12 @@
 import { AiFillStar } from "react-icons/ai";
 import { IoIosArrowBack } from "react-icons/io";
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Container from '../components/Container';
 import ModalAlert from './../components/ModalAlert';
-import { toggleModal } from "../store/reducers/pageSlice";
+import { toggleModal , setSelectedTour } from "../store/reducers/pageSlice";
+import Booking from "../components/pageComponents/Booking";
 
 
 
@@ -56,7 +57,10 @@ const TourDetail = () => {
                 </div>
                 <div className="flex justify-end">
                   <button
-                    onClick={() => dispatch(toggleModal())}
+                    onClick={() =>{ 
+                      dispatch(setSelectedTour(tour.id))
+                      dispatch(toggleModal())
+                    }}
                     className="text-[20px] font-semibold text-white px-3 py-1 bg-green-400 rounded-md duration-500  hover:bg-green-700">Book now </button>
                 </div>
               </div>
@@ -65,7 +69,9 @@ const TourDetail = () => {
         </div>
       </Container>
       <ModalAlert>
-        hello
+        <div className="">
+          <Booking id={tour?.id}/>
+        </div>
       </ModalAlert>
     </div>
   )
