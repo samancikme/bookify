@@ -42,18 +42,12 @@ export const logIn = (url, value, { resetForm }) => {
 export const boofdsk = (url, value) => {
   return async (dispatch) => {
     try {
-      // localStorage'dan tokenni olish
       const token = localStorage.getItem("travel-token");
-      
       const res = await axios.post(`${url}/book`, value, { headers });
-      // Agar token mavjud bo'lsa, u holda Authorization sarlavhasini qo'shamiz
       const headers = {
         "Content-type": "application/json",
         Authorization: `Bearer ${token}`,
       };
-
-      // API so'rovi yuborish
-
       console.log(res.data);
     } catch (err) {
       console.log(err);

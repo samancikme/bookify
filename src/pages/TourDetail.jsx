@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Container from '../components/Container';
 import ModalAlert from './../components/ModalAlert';
-import { toggleModal , setSelectedTour } from "../store/reducers/pageSlice";
+import { toggleModal, setSelectedTour } from "../store/reducers/pageSlice";
 import Booking from "../components/pageComponents/Booking";
 
 
@@ -16,7 +16,7 @@ const TourDetail = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { slug } = useParams()
-  
+
   const tour = offers?.find(offer => offer.slug === slug)
 
   return (
@@ -49,7 +49,6 @@ const TourDetail = () => {
                   <span className="text-[16px] font-normal text-gray-800">{tour?.details}</span>
                 </div>
                 <div className="">
-
                   <div className="">
                     <span className="text-[24px]">Price : </span>
                     <span className="text-[24px]">{tour?.price}$</span>
@@ -57,7 +56,7 @@ const TourDetail = () => {
                 </div>
                 <div className="flex justify-end">
                   <button
-                    onClick={() =>{ 
+                    onClick={() => {
                       dispatch(setSelectedTour(tour.id))
                       dispatch(toggleModal())
                     }}
@@ -68,10 +67,8 @@ const TourDetail = () => {
           </div>
         </div>
       </Container>
-      <ModalAlert>
-        <div className="">
-          <Booking id={tour?.id}/>
-        </div>
+      <ModalAlert >
+        <Booking id={tour?.id} />
       </ModalAlert>
     </div>
   )

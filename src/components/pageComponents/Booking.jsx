@@ -34,7 +34,7 @@ const Booking = ({id}) => {
     };
 
     return (
-        <div className="mt-10 p-6 bg-white shadow-md rounded-md">
+        <div className="mt-10 p-6 bg-white shadow-md rounded-md w-full">
             <h1 className="text-2xl font-bold mb-4 text-center">Buyurtma Formasi</h1>
             <Formik
                 initialValues={initialValues}

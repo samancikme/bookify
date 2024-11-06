@@ -22,7 +22,7 @@ const HomeTourCard = ({ item }) => {
                     alt="Travel Destination"
                     className="w-full h-[250px] object-cover" />
                 <div
-                    onClick={handleFavoriteToggle}
+                    onClick={() => handleFavoriteToggle()}
                     className="absolute top-3 right-3 text-white px-2 hover:scale-105 cursor-pointer py-1 rounded flex items-center gap-1">
                     {isFavorited ?
                         <AiFillHeart className="text-[24px] text-red-500" />
