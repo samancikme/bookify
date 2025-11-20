@@ -1,5 +1,5 @@
 import axios from "axios";
-import { toggleModal } from "../store/reducers/pageSlice";
+import {  toggleModal } from "../store/reducers/pageSlice";
 
 export const registration = (url, value, { resetForm }) => {
   return async (dispatch) => {
@@ -10,9 +10,19 @@ export const registration = (url, value, { resetForm }) => {
         },
       });
       console.log(res);
-      dispatch(toggleModal("log-in"));
+      // console.log(value)
+      if (res.status === 201) {
+        dispatch(
+          logIn(
+            url,
+            { email: value.email, password: value.password },
+            { resetForm }
+          )
+        );
+      }
       resetForm();
       console.log(res.data);
+      dispatch(toggleisRegLoad())
     } catch (err) {
       resetForm();
       console.log(err);
@@ -31,6 +41,7 @@ export const logIn = (url, value, { resetForm }) => {
       resetForm();
       console.log(res.data);
       localStorage.setItem("travel-token", res.data.token);
+      window.location.reload();
       setTimeout(() => dispatch(toggleModal("log-in")), 2000);
     } catch (err) {
       resetForm();

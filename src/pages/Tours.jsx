@@ -58,7 +58,7 @@ const Tours = () => {
   });
 
   return (
-    <div className="pb-12 font-nunito ">
+    <div className="pb-12 font-nunito duration-300 transition-all">
       <Container className="w-[85%]">
         <div className="flex gap-6 w-full relative">
           <div className="w-[25%] bg-gray-50 p-4 rounded-lg shadow-md md:flex flex-col hidden ">

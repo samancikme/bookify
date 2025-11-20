@@ -6,6 +6,7 @@ const initialState = {
   isLangMenuAct: false,
   isModalAct: false,
   isRegModalAct: false,
+  isLogOutModalAct: false,
   lang: "en",
   authType: "sign-up",
   selectedTour : null
@@ -26,6 +27,9 @@ const pageSlice = createSlice({
     },
     toggleRegModal: (state) => {
       state.isRegModalAct = !state.isRegModalAct
+    },
+    toggleisLogOutModalAct: (state) => {
+      state.isLogOutModalAct = !state.isLogOutModalAct
     },
     changeLang: (state, action) => {
       state.lang = action.payload
@@ -60,6 +64,7 @@ export const {
   removeFromFavorites,
   toggleAuthType,
   toggleRegModal,
+  toggleisLogOutModalAct,
   setSelectedTour
 } = pageSlice.actions
 

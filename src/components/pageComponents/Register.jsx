@@ -12,8 +12,8 @@ const Register = () => {
   const baseUrl = 'https://travel-database-r4bg.onrender.com'
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [pasType, setPasType] = useState(true)  //!* true === password false === text
-    const [confPasType, setConfPasType] = useState(true)  //!* true === password false === text
+    const [pasType, setPasType] = useState(true)  //? true === password false === text
+    const [confPasType, setConfPasType] = useState(true)  //? true === password false === text
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email format').required('Email is required'),
         username: Yup.string().required('Username is required').min(3, 'Username must be at least 3 characters'),
@@ -22,7 +22,7 @@ const Register = () => {
     })
 
     return (
-        <div className='w-full flex justify-center items-center'>
+        <div className='w-full flex justify-center items-center '>
             <div className='min-w-[250px] px-4 py-6 forma w-full rounded-xl h-max'>
                 <div className="text-[26px] text-center font-normal">Sign up</div>
                 <Formik
@@ -43,7 +43,7 @@ const Register = () => {
                                     id='email'
                                     name='email'
                                     type='email'
-                                    className={`w-full p-2 border outline-none ${errors.email && touched.email ? 'border-red-500 focus:border-red-600 ' : 'border-gray-300'} bg-transparent rounded-md`} />
+                                    className={`w-full  p-2 shadow-lg border outline-none ${errors.email && touched.email ? 'border-red-500 focus:border-red-600 ' : 'border-gray-300'} bg-transparent rounded-md`} />
                                 <ErrorMessage name="email" component="span" className="text-red-500 text-sm" />
                             </div>
 
@@ -54,7 +54,7 @@ const Register = () => {
                                     id='username'
                                     name='username'
                                     type='text'
-                                    className={`w-full p-2 border outline-none ${errors.username && touched.username ? 'border-red-500 focus:border-red-600  ' : ' border-gray-300'} bg-transparent rounded-md`} />
+                                    className={`w-full p-2 shadow-lg border outline-none ${errors.username && touched.username ? 'border-red-500 focus:border-red-600  ' : ' border-gray-300'} bg-transparent rounded-md`} />
                                 <ErrorMessage name="username" component="span" className="text-red-500 text-sm" />
                             </div>
 
@@ -66,7 +66,7 @@ const Register = () => {
                                         id='password'
                                         name='password'
                                         type={pasType ? "password" : "text"}
-                                        className={`w-full p-2 border outline-none ${errors.password && touched.password ? 'border-red-500 focus:border-red-600 ' : '  border-gray-300'} bg-transparent rounded-md`} />
+                                        className={`w-full p-2 shadow-lg border outline-none ${errors.password && touched.password ? 'border-red-500 focus:border-red-600 ' : '  border-gray-300'} bg-transparent rounded-md`} />
                                     <div
                                         onClick={() => setPasType(!pasType)}
                                         className="cursor-pointer absolute top-0 right-2 bottom-0 text-[22px] flex justify-center items-center">
@@ -84,7 +84,7 @@ const Register = () => {
                                         id='confirmPassword'
                                         name='confirmPassword'
                                         type={confPasType ? "password" : "text"}
-                                        className={`w-full p-2 border outline-none ${errors.confirmPassword && touched.confirmPassword ? 'border-red-500 focus:border-red-600 ' : ' border-gray-300'} bg-transparent rounded-md`} />
+                                        className={`w-full p-2 shadow-lg border outline-none ${errors.confirmPassword && touched.confirmPassword ? 'border-red-500 focus:border-red-600 ' : ' border-gray-300'} bg-transparent rounded-md`} />
                                     <div
                                         onClick={() => setConfPasType(!confPasType)}
                                         className="cursor-pointer absolute top-0 right-2 bottom-0 text-[22px] flex justify-center items-center">

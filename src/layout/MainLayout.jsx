@@ -1,6 +1,6 @@
 import { BsMapFill } from "react-icons/bs";
 import Header from '../components/Header'
-import { Link, Outlet, useLocation } from 'react-router-dom'
+import { Link, Outlet, useLocation, useNavigation } from 'react-router-dom'
 import MenuBottom from '../components/MenuBottom'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../store/reducers/pageSlice'
@@ -9,20 +9,20 @@ import { getAllDestData, getAllOfferData } from './../api/getRequests';
 import Footer from "../components/Footer";
 import ModalAlert from "../components/ModalAlert";
 import AuthModal from "../components/pageComponents/AuthModal";
+import LogOutModalAct from "../components/pageComponents/LogOutModalAct";
 
 const MainLayout = () => {
   const { isMenuAct } = useSelector(state => state.page)
   const destinations = useSelector(state => state.destinations)
   const offers = useSelector(state => state.offers)
   const dispatch = useDispatch()
-  const { pathname } = useLocation()
-
+  const  pathname  = useLocation()
   const baseUrl = 'https://travel-database-r4bg.onrender.com'
 
 
 
   // console.log(destinations)
-  // console.log(offers)
+  console.log(offers)
 
 
 
@@ -53,6 +53,9 @@ const MainLayout = () => {
       </div>
       <div>
         <AuthModal />
+      </div>
+      <div>
+        <LogOutModalAct/>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { changeLang, toggleAuthType, toggleLangMenu, toggleMenu, toggleModal, toggleRegModal } from "../store/reducers/pageSlice.js";
+import { changeLang, toggleAuthType, toggleisLogOutModalAct, toggleLangMenu, toggleMenu, toggleModal, toggleRegModal } from "../store/reducers/pageSlice.js";
 import Container from "./Container";
 import { CgClose } from "react-icons/cg";
 import { RiTranslate2 } from "react-icons/ri";
@@ -16,7 +16,7 @@ import { btnsSidebar } from "../constants/SidebarBtns.js";
 const Header = () => {
 
 
-  const { isMenuAct, lang, isLangMenuAct } = useSelector(state => state.page)
+  const { isMenuAct, lang, isLangMenuAct} = useSelector(state => state.page)
   const { accountStatus } = useSelector(state => state.acc)
   const dispatch = useDispatch()
   const menu = useRef()
@@ -152,7 +152,14 @@ const Header = () => {
                   className="text-[14px] px-5 py-2 font-semibold hover:bg-gray-100 w-full">
                   Gift Card
                 </Link>
-                <button className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
+                <button
+                onClick={e=>{
+                  console.log('hello world')
+                  dispatch(toggleMenu())
+                  dispatch(toggleisLogOutModalAct())
+                  dispatch(toggleisRegLoad())
+                }}
+                 className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
                   Log out
                 </button>
               </div>
@@ -167,7 +174,7 @@ const Header = () => {
                     dispatch(toggleAuthType('sign-up'))
                   }}
                   className="text-[14px] text-start px-5 py-2 font-semibold hover:bg-gray-100 w-full">
-                  Sign Up
+                  Sign up
                 </button>
                 <button
                   onClick={() => {
